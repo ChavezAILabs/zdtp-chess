@@ -480,10 +480,12 @@ ZDTP Chess combines **standard chess engine components** with **novel multi-dime
 These components ensure ZDTP Chess meets baseline requirements for chess programming and can be validated against traditional engines.
 
 ### ZDTP Innovation
-- **16D Tactical Analysis** - Sedenion-based immediate threat detection
-- **32D Positional Analysis** - Pathion gateway patterns for structural evaluation
-- **64D Strategic Analysis** - Chingon-based long-term planning
+- **16D Layer** - Sixteen board-derived evaluation features (material, pawn structure, king safety, center control, mobility, and more), stored as sedenion coefficients
+- **32D Layer** - The 16D features plus tactical, positional and higher-order features computed from the board, and four gateway interaction terms (dims 24–27)
+- **64D Layer** - The 32D features plus strategic features computed from the board, and six more gateway-derived terms (dims 52, 56–59, 63)
 - **Gateway Convergence** - Cross-gateway agreement as an evaluation-stability signal
+
+Ten of the 64 dimensions involve the zero-divisor algebra; the rest are computed from the board directly. See [How It Works](#zero-divisor-transmission-protocol-zdtp) and [Open Questions](#open-questions).
 
 The ZDTP layers run after standard blunder detection, adding strategic insight beyond traditional evaluation functions.
 
@@ -547,7 +549,6 @@ If the arms are indistinguishable, the gateway contribution is decorative and th
 ### AI Infrastructure (Platform Vision)
 - **Decision Intelligence** - Multi-framework validation for complex AI decisions
 - **Quantitative Finance** - Portfolio analysis through dimensional risk assessment (CAILculator in development)
-- **Medical Diagnostics** - Multi-framework symptom evaluation with convergence validation
 - **Strategic Planning** - Business decisions analyzed across multiple independent frameworks
 - **AI Safety** - Catching edge cases that single-model systems miss
 

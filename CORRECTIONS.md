@@ -36,6 +36,8 @@ This register follows the format of the [CAIL-rh-investigation CORRECTIONS.md](h
 
 **Corrected:** 2026-10-01. `README.md` "Formal Verification (Session 0.1)" replaced by "Analytic Grounding (Session 0.1)" with an explicit scope statement and retraction note; transmission, convergence and roadmap language rewritten; Open Questions section added; repository URLs moved from `pchavez2029` to `ChavezAILabs`. In code, the hardcoded `transmission_fidelity` and `overall_fidelity` keys were removed from `dimensional_portal.py`, along with the "Transmission Fidelity" line in the dimensional analysis output. `lean/ChavezTransform_Specification_aristotle.lean` is retained for provenance, with `lean/README.md` marking it as superseded.
 
+**Corrected (second pass):** 2026-10-01, from review of the merged first pass. The Architecture section's "ZDTP Innovation" list still described the layers as "Sedenion-based threat detection", "Pathion gateway patterns" and "Chingon-based planning", contradicting How It Works; it now describes board-derived features per layer and names the ten gateway-derived dimensions. The first pass also stated that dims 24–27 were the only path by which gateway multiplication reaches the output; dims 52, 56–59 and 63 also do, and the README and the ablation design were corrected before merge. The Applications "Medical Diagnostics" bullet ("convergence validation" on a convergence signal the README itself marks untested) was removed.
+
 **Not done, and not claimed to be done:**
 - Code docstrings and comments in `strategic_analyzer.py` and `test_session_01_verification.py` still describe dims 44–55 as "formally verified" and cite the superseded file.
 - `zdtp_showcase.py` reports a "Transmission Fidelity" that measures only whether dims 0–15 were copied, and labels it as zero-divisor verification.
@@ -49,6 +51,7 @@ This register follows the format of the [CAIL-rh-investigation CORRECTIONS.md](h
 | Date | Change |
 |---|---|
 | 2026-10-01 | Register opened. C-001 entered and closed as **Corrected**. |
+| 2026-10-01 | C-001 second pass: Architecture "ZDTP Innovation" list rewritten to match How It Works; Medical Diagnostics application removed. |
 
 ---
 
