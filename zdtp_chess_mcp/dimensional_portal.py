@@ -1,12 +1,13 @@
 """
 Dimensional Portal System - Zero Divisor Transmission Protocol
 
-Implements lossless dimensional data transmission using zero divisor
-conjugate pairs from the Canonical Six patterns.
+Implements staged dimensional expansion using zero divisor conjugate
+pairs from the Canonical Six patterns as gateways.
 
-The portal system enables chess position information to traverse from
-16D (tactical) → 32D (positional) → 64D (strategic) dimensional spaces
-while maintaining information fidelity.
+The portal system expands chess position information from
+16D (tactical) → 32D (positional) → 64D (strategic) spaces. Each smaller
+state is copied unchanged as a prefix of the larger one; the added
+dimensions hold features computed from the board and gateway terms.
 
 Reference: "Framework-Independent Zero Divisor Patterns in
 Higher-Dimensional Cayley-Dickson Algebras" - Chavez (2025)
@@ -189,7 +190,6 @@ class DimensionalPortal:
             'gateway_pattern': get_pattern_info(piece_type),
             'zero_divisor_verified': is_verified,
             'product_norm': float(abs(gateway_P * conjugate_Q)),
-            'transmission_fidelity': 1.0,
             'intelligent_assignment': board is not None
         }
 
@@ -332,7 +332,6 @@ class DimensionalPortal:
             'gateway_pattern': get_pattern_info(piece_type),
             'zero_divisor_verified': is_verified,
             'product_norm': float(abs(product_32d)),
-            'transmission_fidelity': 1.0,
             'intelligent_assignment': board is not None
         }
 
@@ -347,9 +346,10 @@ class DimensionalPortal:
         """
         Perform full cascade: 16D → 32D → 64D transmission WITH INTELLIGENCE.
 
-        This is the complete ZDTP proof: a single chess position
-        transmitted losslessly across three dimensional spaces, with
-        intelligent tactical and strategic feature computation.
+        Lower-dimensional states are carried forward as prefixes of the
+        higher-dimensional ones (dims 0-15 and 0-31 are copied unchanged),
+        with tactical, positional and strategic features computed for the
+        added dimensions.
 
         Args:
             state_16d: Initial 16D board encoding
@@ -373,11 +373,7 @@ class DimensionalPortal:
             'portal_16_32': meta_32d,
             'portal_32_64': meta_64d,
             'gateway_piece': chess.piece_name(piece_type),
-            'cascade_complete': True,
-            'overall_fidelity': min(
-                meta_32d['transmission_fidelity'],
-                meta_64d['transmission_fidelity']
-            )
+            'cascade_complete': True
         }
 
         return results
@@ -515,7 +511,6 @@ if __name__ == "__main__":
         print(f"  Gateway: {metadata['gateway_pattern']['name']}")
         print(f"  Zero divisor verified: {metadata['zero_divisor_verified']}")
         print(f"  Product norm: {metadata['product_norm']:.2e}")
-        print(f"  Fidelity: {metadata['transmission_fidelity']:.1%}")
         print()
     except Exception as e:
         print(f"Failed: {e}")
@@ -532,7 +527,6 @@ if __name__ == "__main__":
         print(f"  Source: 32D pathion")
         print(f"  Target: 64D chingon")
         print(f"  Zero divisor verified: {metadata['zero_divisor_verified']}")
-        print(f"  Fidelity: {metadata['transmission_fidelity']:.1%}")
         print()
     except Exception as e:
         print(f"Failed: {e}")
@@ -549,7 +543,6 @@ if __name__ == "__main__":
         print(f"  Gateway: {cascade_results['gateway_piece']}")
         print(f"  16D -> 32D verified: {cascade_results['portal_16_32']['zero_divisor_verified']}")
         print(f"  32D -> 64D verified: {cascade_results['portal_32_64']['zero_divisor_verified']}")
-        print(f"  Overall fidelity: {cascade_results['overall_fidelity']:.1%}")
         print()
     except Exception as e:
         print(f"Failed: {e}")
