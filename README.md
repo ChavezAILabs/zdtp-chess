@@ -18,7 +18,7 @@ Traditional chess engines evaluate positions with a **single number**. Zero Divi
 - **32D Positional Layer** - Piece coordination, pawn structure, gateway patterns
 - **64D Strategic Layer** - Long-term planning, endgame evaluation, strategic depth
 
-Each position is analyzed through six mathematical **gateways** (King, Queen, Knight, Bishop, Rook, Pawn) derived from zero divisor patterns in higher-dimensional algebras. When multiple gateways converge on the same evaluation, you've found something objectively strong across independent mathematical frameworks.
+Each position is analyzed through six mathematical **gateways** (King, Queen, Knight, Bishop, Rook, Pawn) derived from zero divisor patterns in higher-dimensional algebras. When multiple gateways converge on the same evaluation, that agreement is a signal that the assessment is stable across the different feature weightings each gateway induces.
 
 **This is infrastructure for AI systems, not a chess product.** Chess is the proof of concept for multi-dimensional decision intelligence.
 
@@ -27,13 +27,13 @@ Each position is analyzed through six mathematical **gateways** (King, Queen, Kn
 ## Features
 
 ### Gateway Convergence Detection
-Six independent mathematical "gateways" (King, Queen, Knight, Bishop, Rook, Pawn) analyze each position. When multiple gateways converge on the same evaluation and recommendation, the system identifies framework-independent optimal moves with mathematical certainty.
+Six mathematical "gateways" (King, Queen, Knight, Bishop, Rook, Pawn) analyze each position. When several gateways independently arrive at similar evaluations, that agreement indicates the assessment is stable across the different feature weightings each gateway induces. It is a confidence signal, not a proof of optimality.
 
 ### Blunder Prevention
 Industry-standard Static Exchange Evaluation (SEE) integrated with dimensional analysis to catch hanging pieces and catastrophic moves before they happen.
 
 ### Educational Interface
-Clear visualization of dimensional scores, gateway patterns, and convergence indicators help players understand not just *what* move to make, but *why* it's optimal across multiple mathematical frameworks.
+Clear visualization of dimensional scores, gateway patterns, and convergence indicators help players understand not just *what* move to make, but *why* it scores well across multiple evaluation perspectives.
 
 ### Candidate Suggester (Session 2)
 
@@ -51,7 +51,7 @@ The `chess_suggest_candidates` tool solves this by categorizing **every legal mo
 Each move includes a Static Exchange Evaluation (SEE) safety assessment so the LLM sees material-loss warnings inline before recommending a move.
 
 ### Master Dampener (Session 0.1)
-Formally verified fortress draw detection. When structural signals (locked pawns, opposite-color bishops, insufficient material) combine with temporal stasis (evaluation unchanged over 4+ moves), the Master Dampener pulls evaluation toward 0.0 (draw). Formula: `Consensus × (1 - FortressSignal)`
+Heuristic fortress draw detection. When structural signals (locked pawns, opposite-color bishops, insufficient material) combine with temporal stasis (evaluation unchanged over 4+ moves), the Master Dampener pulls evaluation toward 0.0 (draw). Formula: `Consensus × (1 - FortressSignal)`
 
 ---
 
@@ -101,12 +101,12 @@ Detailed platform-specific instructions below.
 
 **Option A: Using Git**
 ```powershell
-git clone https://github.com/pchavez2029/zdtp-chess.git
+git clone https://github.com/ChavezAILabs/zdtp-chess.git
 cd zdtp-chess
 ```
 
 **Option B: Download ZIP (No Git Required)**
-1. Visit https://github.com/pchavez2029/zdtp-chess
+1. Visit https://github.com/ChavezAILabs/zdtp-chess
 2. Click the green **"Code"** button
 3. Select **"Download ZIP"**
 4. Extract to a permanent location (e.g., `C:\Users\YourName\Documents\zdtp-chess`)
@@ -183,7 +183,7 @@ You may see warnings about scripts not on PATH - these are non-critical and can 
 
 ```bash
 # Clone repository
-git clone https://github.com/pchavez2029/zdtp-chess.git
+git clone https://github.com/ChavezAILabs/zdtp-chess.git
 cd zdtp-chess
 
 # Install dependencies
@@ -314,7 +314,7 @@ If you encounter issues not covered here:
 python --version
 python -m pip list | findstr "chess mcp hypercomplex"
 ```
-3. **Create a GitHub Issue:** https://github.com/pchavez2029/zdtp-chess/issues
+3. **Create a GitHub Issue:** https://github.com/ChavezAILabs/zdtp-chess/issues
    - Include your OS, Python version, and error messages from Claude Desktop logs
 
 ---
@@ -343,19 +343,19 @@ These are called **zero divisors**, and mathematicians traditionally have dismis
 
 ### Why Zero Divisors Are Actually Useful
 
-**Key insight:** Zero divisors can encode information about **dimensional collapse** and **information loss** in algebraic systems. In chess decision-making, this maps to:
+**Key insight:** Zero divisors can encode information about **dimensional collapse** and **information loss** in algebraic systems. ZDTP Chess uses this as a design motif for its three evaluation layers:
 
 - **Tactical collapse** (16D) - Positions where forcing sequences eliminate options
 - **Positional transformation** (32D) - How piece coordination changes across moves
-- **Strategic encoding** (64D) - Long-term plan evaluation through dimensional reduction
+- **Strategic encoding** (64D) - Long-term plan evaluation
 
-When you analyze a chess position in 16D and transmit it to 32D and 64D via ZDTP, zero divisor patterns preserve the **decision-relevant structure** with lossless information movement between dimensional spaces.
+How much the zero-divisor algebra itself contributes to move quality, as opposed to the chess features computed alongside it, has not yet been measured. See [Open Questions](#open-questions).
 
 ### Example: The Canonical Six
 
 We discovered six fundamental zero divisor patterns that appear consistently across 16D/32D/64D spaces. (Reference: https://zenodo.org/records/17402495)
 
-Each pattern provides a different "lens" for evaluating positions. When multiple patterns converge on the same evaluation, you've found framework-independent optimality.
+Each pattern provides a different "lens" for evaluating positions. When several gateways independently arrive at similar evaluations, that agreement indicates the assessment is stable across the different feature weightings each gateway induces. It is a confidence signal, not a proof of optimality.
 
 **That's the math. The rest is engineering.**
 
@@ -365,26 +365,16 @@ Each pattern provides a different "lens" for evaluating positions. When multiple
 
 ### Zero Divisor Transmission Protocol (ZDTP)
 
-ZDTP enables **lossless data movement** between higher-dimensional mathematical spaces:
+ZDTP builds a 64-dimensional position representation in stages:
 
-1. **Encoding (16D)** - Chess position → 16D sedenion representation
-   - Material balance, piece mobility, tactical threats
-   - Encoded using basis elements e₀ through e₁₅
+1. **16D encoding** — the board is encoded into sixteen evaluation features (material balance, pawn structure, king safety, center control, mobility, development, piece activity, castling rights, complexity).
+2. **32D expansion** — the 16D vector occupies dims 0–15 unchanged. Dims 16–31 are populated with tactical features (hanging pieces, pins, forks, SEE), advanced positional features, gateway interaction terms, and higher-order features.
+3. **64D expansion** — the 32D vector occupies dims 0–31 unchanged. Dims 32–63 carry strategic features: multi-move sequences, planning, game-phase recognition, positional imbalances, draw detection, the Session 0.1 analytic features (dims 52–55), gateway harmony, and meta-cognitive terms.
+4. **Convergence detection** — gateway outputs are compared; agreement across gateways is reported as an evaluation-stability signal. Disagreement indicates tactical complexity requiring deeper analysis.
 
-2. **Transmission (32D)** - 16D data → 32D pathion space via gateway patterns
-   - Six independent gateways process position simultaneously
-   - Zero divisor patterns preserve decision-relevant structure
-   - Positional factors (coordination, structure) emerge in 32D
+**Where the algebra enters.** Gateway patterns are sedenion zero-divisor pairs drawn from the Canonical Six. The gateway `P` multiplies the 16D state, and the result contributes to dims 24–27. Each gateway's conjugate `Q` satisfies `P × Q ≈ 0`, verified at portal construction.
 
-3. **Strategic Analysis (64D)** - 32D data → 64D chingon space
-   - Long-term planning, endgame evaluation
-   - Strategic depth analysis through dimensional expansion
-
-4. **Convergence Detection** - Compare all gateway outputs
-   - If multiple gateways agree (within threshold), move is framework-independent optimal
-   - Disagreement indicates tactical complexity requiring deeper analysis
-
-**Why this matters:** Traditional dimensional reduction **loses information**. ZDTP uses zero divisor patterns to preserve decision-relevant structure across dimensional transformations. Information moves losslessly between 16D, 32D, and 64D spaces.
+**Scope of the preservation claim.** Lower-dimensional features are preserved because the smaller vector is a prefix of the larger one — preservation by construction, not a consequence of zero-divisor algebra. The zero-divisor verification confirms a property of the gateway constants; it does not vary with position. Whether the gateway-derived dimensions measurably improve move selection is an open question we have not yet tested (see [Open Questions](#open-questions)).
 
 ### Game Flow
 
@@ -404,7 +394,7 @@ ZDTP Chess provides the following tools through the Model Context Protocol:
 - **chess_analyze_move** - Preview move consequences without executing (what-if analysis)
 - **chess_get_board** - Display current position and game state
 - **chess_get_dimensional_analysis** - Detailed breakdown of current position
-- **chess_check_gateway_convergence** - Check multiple gateways for framework-independent optimization
+- **chess_check_gateway_convergence** - Check whether multiple gateways agree on the evaluation (a stability signal)
 - **chess_load_position** - Load a position from FEN or the Stressor Library (Session 0.1)
 - **chess_list_stressors** - List curated test positions for dimensional analysis stress testing
 
@@ -493,7 +483,7 @@ These components ensure ZDTP Chess meets baseline requirements for chess program
 - **16D Tactical Analysis** - Sedenion-based immediate threat detection
 - **32D Positional Analysis** - Pathion gateway patterns for structural evaluation
 - **64D Strategic Analysis** - Chingon-based long-term planning
-- **Gateway Convergence** - Framework-independent optimality detection
+- **Gateway Convergence** - Cross-gateway agreement as an evaluation-stability signal
 
 The ZDTP layers run after standard blunder detection, adding strategic insight beyond traditional evaluation functions.
 
@@ -505,27 +495,21 @@ ZDTP Chess is built on research into Cayley-Dickson algebras and zero divisor pa
 
 **Research Publication:** [Framework-Independent Zero Divisor Patterns in Higher-Dimensional Cayley-Dickson Algebras: Discovery and Verification of The Canonical Six](https://zenodo.org/records/17402495) - Zenodo DOI: 10.5281/zenodo.17402495
 
-### Formal Verification (Session 0.1)
+### Analytic Grounding (Session 0.1)
 
-ZDTP Chess v2.0 features are grounded in machine-verified proofs from `ChavezTransform_Specification_aristotle.lean`:
+Three v2.0 features were designed from analytic bounds explored in the Chavez Transform work ([`ChavezTransform_genuine.lean`](https://github.com/ChavezAILabs/CAIL-rh-investigation/blob/main/lean/ChavezTransform_genuine.lean), Chavez AI Labs):
 
-- **Theorem 5 (Bilateral Kernel Bound):** `K_Z(P,Q,x) ≤ 4(||P||² + ||Q||²)||x||²`
-  - Ensures tactical noise is mathematically contained
-  - Implementation: Dim 52 `tactical_ceiling` computes saturation ratio
+- **`tactical_ceiling` (Dim 52)** — a saturation ratio, motivated by the bounded form of the bilateral kernel `K_Z`.
+- **`mobility_occlusion` (Dim 54)** — a decay function for piece influence by board density, using the power-law weight `(1 + ‖x‖²)^(−d/2) ≤ 1`.
+- **Master Dampener threshold** — a practical stasis threshold of `M = 0.5`, tuned empirically.
 
-- **Theorem 3 (Dimensional Weight):** `(1 + ||x||²)^(-d/2) ≤ 1` for d > 0
-  - Provides decay function for piece influence based on board density
-  - Implementation: Dim 54 `mobility_occlusion` uses this decay
+**What is and is not verified.** `ChavezTransform_genuine.lean` proves a sharp stability bound, with stability constant `2(‖P‖² + ‖Q‖²)/(α·e)`, and a clean axiom footprint (`[propext, Classical.choice, Quot.sound]`, no `sorryAx`). That result is about a **one-dimensional scalar-channel restriction** where sedenion multiplication degenerates to scalar multiplication — the zero-divisor structure is not exercised by it. The constant above belongs to that Chavez Transform result; it is not the Master Dampener threshold. The features above are therefore **heuristics informed by that analysis, not consequences of verified theorems about the chess evaluation.**
 
-- **Stability Constant M:** `M = (||P||² + ||Q||²) · √(π/α)`
-  - Threshold for detecting evaluation stasis (fortress positions)
-  - Implementation: Master Dampener uses practical threshold M = 0.5
-
-The Lean 4 proofs were generated by Aristotle (Harmonic) and compile with Mathlib.
+An earlier version of this README cited `ChavezTransform_Specification_aristotle.lean`. That file was superseded: its `CD4_mul` was defined as the zero function, making its theorems vacuous (see [CAIL-rh-investigation CORRECTIONS.md](https://github.com/ChavezAILabs/CAIL-rh-investigation/blob/main/CORRECTIONS.md) C-016, and C-018 for the scope of its replacement). It should not be cited as grounding for anything. The copy in this repository's `lean/` directory is kept for provenance only; see [CORRECTIONS.md](CORRECTIONS.md).
 
 ### The Six Gateways
 
-Each gateway represents a different zero divisor pattern from 32D pathion algebra:
+Each gateway represents a different zero divisor pattern from 16D sedenion algebra:
 
 1. **King Gateway** - Master gateway, holistic evaluation
 2. **Queen Gateway** - Multi-modal gateway, tactical complexity
@@ -534,16 +518,27 @@ Each gateway represents a different zero divisor pattern from 32D pathion algebr
 5. **Rook Gateway** - Orthogonal gateway, file control
 6. **Pawn Gateway** - Incremental gateway, structural analysis
 
-When multiple gateways independently arrive at the same evaluation and recommendation, the move is considered framework-independent optimal.
+When several gateways independently arrive at similar evaluations, that agreement indicates the assessment is stable across the different feature weightings each gateway induces. It is a confidence signal, not a proof of optimality.
+
+---
+
+## Open Questions
+
+**Do the gateway-derived dimensions contribute signal?** Dims 24–27 are the only path by which sedenion multiplication by the gateway pattern reaches the 64D output. They are 4 of 64 dimensions, and nothing yet establishes that they improve move selection. The experiment that would settle it is an ablation: 50 games in each of three arms —
+
+1. unmodified,
+2. dims 24–27 zeroed,
+3. dims 24–27 filled from a random sedenion.
+
+If the arms are indistinguishable, the gateway contribution is decorative and this README will say so. If the unmodified arm wins, stronger claims about the algebra become defensible and will be restated with the measurement cited. This ablation has not been run.
 
 ---
 
 ## Applications
 
 ### Chess (Current Proof of Concept)
-- Zero Divisor Transmission Protocol moves position information with no data loss from 16D to 32D to 64D
 - Multi-dimensional position evaluation across tactical/positional/strategic layers
-- Framework-independent move quality assessment through gateway convergence
+- Evaluation-stability assessment through gateway convergence
 - Real-time blunder detection with dimensional analysis
 - Educational tool for understanding multi-perspective decision-making
 
@@ -557,7 +552,7 @@ When multiple gateways independently arrive at the same evaluation and recommend
 ### For Developers & Researchers
 - **Multi-Framework Analysis** - Reference architecture for combining independent mathematical approaches
 - **Applied Pathological Mathematics** - Demonstration that "unusable" mathematical structures have practical value
-- **Framework-Independent Optimization** - Study convergence patterns across different algebraic systems
+- **Gateway Convergence Research** - Study convergence patterns across different algebraic systems
 
 ---
 
@@ -566,16 +561,16 @@ When multiple gateways independently arrive at the same evaluation and recommend
 ### Phase 1: Chess (Complete - v1.0)
 - ✅ Core dimensional analysis engine (16D/32D/64D)
 - ✅ Six gateway patterns implemented
-- ✅ ZDTP protocol for lossless dimensional transmission
+- ✅ ZDTP protocol for staged 16D → 32D → 64D feature expansion
 - ✅ Gateway convergence detection
 - ✅ Blunder detection with SEE integration
 - ✅ MCP server with user confirmation safeguards
 
-### Session 0.1: Formal Verification (Complete - v2.0)
-- ✅ **Lean 4 Grounded Features** - Theorems verified by Aristotle (Harmonic)
-  - Theorem 5: Bilateral Kernel Bound → Dim 52 (tactical_ceiling)
-  - Theorem 3: Dimensional Weight → Dim 54 (mobility_occlusion)
-  - Stability Constant M → Master Dampener threshold
+### Session 0.1: Analytic Grounding (Complete - v2.0)
+- ✅ **Analytically Motivated Features** - Features designed from analytic bounds — see Mathematical Foundation for scope.
+  - Bilateral kernel bound → Dim 52 (tactical_ceiling)
+  - Power-law dimensional weight → Dim 54 (mobility_occlusion)
+  - Empirically tuned stasis threshold → Master Dampener
 - ✅ **Master Dampener** - Fortress draw detection with formula: `Consensus × (1 - FortressSignal)`
 - ✅ **Zugzwang Coefficient** - Non-commutativity measure |P·x - x·P| (Dim 63)
 - ✅ **Stressor Position Library** - Curated test positions for dimensional analysis validation
@@ -592,7 +587,7 @@ When multiple gateways independently arrive at the same evaluation and recommend
 - **CAILculator** - Quantitative finance application via MCP server
 - Portfolio risk assessment across dimensional frameworks
 - Multi-asset correlation analysis through gateway patterns
-- Framework-independent optimization for trading strategies
+- Gateway-convergence analysis for trading strategies
 
 ### Phase 3: Platform Expansion
 - Strategic business planning tools
@@ -657,7 +652,7 @@ If you use ZDTP Chess in academic research, please cite:
 
 ```
 Chavez, P. (2025). ZDTP Chess: Multi-Dimensional Analysis Through Zero Divisor Patterns.
-Chavez AI Labs. https://github.com/pchavez2029/zdtp-chess
+Chavez AI Labs. https://github.com/ChavezAILabs/zdtp-chess
 ```
 
 ---

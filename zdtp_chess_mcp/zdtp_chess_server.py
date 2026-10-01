@@ -1076,7 +1076,6 @@ Current Position:
 
 Gateway: {chess.piece_name(gateway_piece)} ({gateway_explain})
 Pattern ID: {cascade['portal_16_32']['gateway_pattern']['id']}
-Transmission Fidelity: {cascade['overall_fidelity']:.0%}
 Consensus Score: {analysis.consensus_score:+.2f} (White's perspective)
 
 💡 Want to check all 6 gateways? Use chess_check_gateway_convergence
