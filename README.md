@@ -372,7 +372,7 @@ ZDTP builds a 64-dimensional position representation in stages:
 3. **64D expansion** — the 32D vector occupies dims 0–31 unchanged. Dims 32–63 carry strategic features: multi-move sequences, planning, game-phase recognition, positional imbalances, draw detection, the Session 0.1 analytic features (dims 52–55), gateway harmony, and meta-cognitive terms.
 4. **Convergence detection** — gateway outputs are compared; agreement across gateways is reported as an evaluation-stability signal. Disagreement indicates tactical complexity requiring deeper analysis.
 
-**Where the algebra enters.** Gateway patterns are sedenion zero-divisor pairs drawn from the Canonical Six. The gateway `P` multiplies the 16D state, and the result contributes to dims 24–27. Each gateway's conjugate `Q` satisfies `P × Q ≈ 0`, verified at portal construction.
+**Where the algebra enters.** Gateway patterns are sedenion zero-divisor pairs drawn from the Canonical Six. Products with the gateway `P` (and its conjugate `Q`) reach the output in four places: dims 24–27 (`P` × 16D state, top four coefficients by magnitude), dim 52 (`tactical_ceiling`), dims 56–59 (gateway harmony, from the 32D state × `P`), and dim 63 (zugzwang coefficient, `|P·x − x·P|`). Every other dimension is computed from the board alone. Each gateway's conjugate `Q` satisfies `P × Q ≈ 0`, verified at portal construction.
 
 **Scope of the preservation claim.** Lower-dimensional features are preserved because the smaller vector is a prefix of the larger one — preservation by construction, not a consequence of zero-divisor algebra. The zero-divisor verification confirms a property of the gateway constants; it does not vary with position. Whether the gateway-derived dimensions measurably improve move selection is an open question we have not yet tested (see [Open Questions](#open-questions)).
 
@@ -524,11 +524,13 @@ When several gateways independently arrive at similar evaluations, that agreemen
 
 ## Open Questions
 
-**Do the gateway-derived dimensions contribute signal?** Dims 24–27 are the only path by which sedenion multiplication by the gateway pattern reaches the 64D output. They are 4 of 64 dimensions, and nothing yet establishes that they improve move selection. The experiment that would settle it is an ablation: 50 games in each of three arms —
+**Do the gateway-derived dimensions contribute signal?** Sedenion multiplication by the gateway pattern reaches the 64D output only through dims 24–27, 52, 56–59 and 63 (see [How It Works](#zero-divisor-transmission-protocol-zdtp)). That is 10 of 64 dimensions, and nothing yet establishes that they improve move selection. The experiment that would settle it is an ablation: 50 games in each of three arms —
 
 1. unmodified,
-2. dims 24–27 zeroed,
-3. dims 24–27 filled from a random sedenion.
+2. the gateway-derived dimensions zeroed,
+3. the gateway-derived dimensions computed from a random sedenion in place of the gateway pattern.
+
+Dims 24–27 can also be ablated on their own, since they are the most direct path.
 
 If the arms are indistinguishable, the gateway contribution is decorative and this README will say so. If the unmodified arm wins, stronger claims about the algebra become defensible and will be restated with the measurement cited. This ablation has not been run.
 

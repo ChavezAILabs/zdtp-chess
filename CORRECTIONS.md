@@ -32,7 +32,7 @@ This register follows the format of the [CAIL-rh-investigation CORRECTIONS.md](h
 4. "Lossless" preservation holds because each smaller vector is copied as a prefix of the larger one. That is preservation by construction, not a consequence of the algebra. `transmission_fidelity` was the literal `1.0`, not a measurement.
 5. Gateway convergence is a stability signal across feature weightings, not a proof of optimality.
 
-**What is true instead:** `tactical_ceiling` (Dim 52), `mobility_occlusion` (Dim 54) and the Master Dampener threshold (`M = 0.5`, empirically tuned) are heuristics informed by the Chavez Transform analysis, not consequences of verified theorems about the chess evaluation. Whether the gateway-derived dimensions (24–27) contribute signal at all is untested; the ablation that would settle it is named in the README's Open Questions section.
+**What is true instead:** `tactical_ceiling` (Dim 52), `mobility_occlusion` (Dim 54) and the Master Dampener threshold (`M = 0.5`, empirically tuned) are heuristics informed by the Chavez Transform analysis, not consequences of verified theorems about the chess evaluation. Whether the gateway-derived dimensions (24–27, 52, 56–59, 63) contribute signal at all is untested; the ablation that would settle it is named in the README's Open Questions section.
 
 **Corrected:** 2026-10-01. `README.md` "Formal Verification (Session 0.1)" replaced by "Analytic Grounding (Session 0.1)" with an explicit scope statement and retraction note; transmission, convergence and roadmap language rewritten; Open Questions section added; repository URLs moved from `pchavez2029` to `ChavezAILabs`. In code, the hardcoded `transmission_fidelity` and `overall_fidelity` keys were removed from `dimensional_portal.py`, along with the "Transmission Fidelity" line in the dimensional analysis output. `lean/ChavezTransform_Specification_aristotle.lean` is retained for provenance, with `lean/README.md` marking it as superseded.
 
@@ -40,7 +40,7 @@ This register follows the format of the [CAIL-rh-investigation CORRECTIONS.md](h
 - Code docstrings and comments in `strategic_analyzer.py` and `test_session_01_verification.py` still describe dims 44–55 as "formally verified" and cite the superseded file.
 - `zdtp_showcase.py` reports a "Transmission Fidelity" that measures only whether dims 0–15 were copied, and labels it as zero-divisor verification.
 - `_reduce_gateway_features` (`dimensional_portal.py`) sorts gateway interaction coefficients by magnitude, which discards which basis element each came from.
-- The dims 24–27 ablation has not been run.
+- The gateway-dimension ablation (dims 24–27, 52, 56–59, 63) has not been run.
 
 ---
 
